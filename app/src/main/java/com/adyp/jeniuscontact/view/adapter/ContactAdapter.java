@@ -17,10 +17,9 @@ import com.adyp.jeniuscontact.util.CustomOnItemClickListener;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
+
+
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
     private ArrayList<ContactItem> list;
@@ -85,7 +84,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         options.circleCrop();
         //options.centerCrop();
 
-        Glide.with(activity).load(photoPath).fitCenter().apply(options).into(holder.imgContact);
+        Glide.with(activity).load(photoPath).fitCenter().apply(options).error(R.drawable.ic_contact_default).into(holder.imgContact);
         holder.tvContactName.setText(contactItem.getFirstName() + " " + contactItem.getLastName());
         holder.tvAge.setText("Age: " + contactItem.getAge());
 
