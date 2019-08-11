@@ -12,7 +12,6 @@ public class ContactServiceResponseItem {
     @SerializedName("error")
     private String error;
     @SerializedName("data")
-
     private ContactItem contactItem = new ContactItem();
 
     public String getMessage() {

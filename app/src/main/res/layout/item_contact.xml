@@ -27,7 +27,7 @@
 
 
 
-    
+
                 <ImageView
                     android:id="@+id/img_contact"
                     android:layout_width="60dp"

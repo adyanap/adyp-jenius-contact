@@ -21,7 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity implements ContactServiceContract.ContactServiceView, ContactAdapter.OnContactItemClickListener {
+    public class MainActivity extends AppCompatActivity implements ContactServiceContract.ContactServiceView, ContactAdapter.OnContactItemClickListener {
 
     private ContactServicePresenter presenter;
 
@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity implements ContactServiceCon
         for (ContactItem item : list) {
             Log.d("Contact Name", item.getFirstName() + " " + item.getLastName());
         }
-        listContact.addAll(list);
-        adapter.setList(listContact);
+        //listContact.addAll(list);
+        adapter.setList(list);
         adapter.notifyDataSetChanged();
         adapter.setOnContactItemClickListener(this);
     }

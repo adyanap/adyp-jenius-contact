@@ -125,7 +125,7 @@ public class ContactDetailActivity extends AppCompatActivity
     public void showRequestError(String errorMessage) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //builder.setTitle("Status");
+        builder.setTitle("Error");
         builder.setMessage(errorMessage);
 
         // add a button
