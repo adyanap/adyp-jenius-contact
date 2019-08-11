@@ -49,6 +49,9 @@ public class ContactDetailActivity extends AppCompatActivity
         presenter.getContactServiceItem(contactItem.getId());
 
         presenterDel = new ContactServiceDelete(this);
+
+        getSupportActionBar().setTitle("Detail");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initView() {

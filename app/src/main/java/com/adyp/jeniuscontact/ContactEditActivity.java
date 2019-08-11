@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -39,6 +40,10 @@ public class ContactEditActivity extends AppCompatActivity implements ContactSer
         setContentView(R.layout.activity_contact_edit);
         contactItem = getIntent().getParcelableExtra("contact_item");
         presenter = new ContactServiceEdit(this);
+
+        getSupportActionBar().setTitle("Edit");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         initView();
     }
@@ -75,8 +80,6 @@ public class ContactEditActivity extends AppCompatActivity implements ContactSer
                 editContact();
             }
         });
-
-
 
         progressBar = (FrameLayout) findViewById(R.id.progress_overlay);
         progressBar.setVisibility(View.GONE);
@@ -125,6 +128,30 @@ public class ContactEditActivity extends AppCompatActivity implements ContactSer
     public void handleSuccessAction(String message)
     {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(ContactEditActivity.this, ContactDetailActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("contact_item", contactItem);
+        startActivity(intent);
+        finish();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: {
+                Intent intent = new Intent(ContactEditActivity.this, ContactDetailActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("contact_item", contactItem);
+                startActivity(intent);
+                finish();
+                break;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
         Intent intent = new Intent(ContactEditActivity.this, ContactDetailActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("contact_item", contactItem);

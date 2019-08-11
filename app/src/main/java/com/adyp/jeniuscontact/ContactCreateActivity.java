@@ -38,6 +38,9 @@ public class ContactCreateActivity extends AppCompatActivity implements ContactS
 
         presenter = new ContactServiceCreate(this);
 
+        getSupportActionBar().setTitle("Create");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         initView();
     }
 
